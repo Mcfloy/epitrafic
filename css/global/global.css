@@ -1,0 +1,28 @@
+#page-content-wrapper, .container-fluid {
+	padding: 0;
+}
+
+.row-centered {
+	text-align: center;
+}
+
+.col-centered {
+	display: inline-block;
+	float: none;
+	text-align: left;
+	vertical-align: top;
+	margin-right: -4px;
+}
+
+#header {
+	text-align: center;
+	background: url('/v3/img/logo/header.jpg');
+}
+
+#header img {
+	max-width: 100%;
+}
+
+.glyphicon-cog {
+	vertical-align: middle;
+}

@@ -1,0 +1,21 @@
+#wheatley_content {
+	min-height: 100px;
+	display: inline-block;
+}
+
+.list-unstyled li {
+	height: 22px;
+	line-height: 22px;
+}
+
+.list-unstyled li .glyphicon {
+	height: 22px;
+}
+
+.glyphicon-remove {
+	color: #c0392b;
+}
+
+.glyphicon-ok {
+	color: #27ae60;
+}
