@@ -1,10 +1,12 @@
 <?php
 	header("Content-Type: application/json; charset=UTF-8");
 
-	if (isset($_POST['token'])) {
+	if (isset($_POST['login']) && isset($_POST['token'])) {
 		include('../../views/global/identifiants.php');
-		$req = $bdd->prepare('SELECT * FROM api WHERE token = :token');
-		$req->execute(array('token' => intval($_POST['token'])));
+		$req = $bdd->prepare('SELECT * FROM api WHERE login = :login AND token = :token');
+		$req->execute(array(
+			'login' => htmlspecialchars($_POST['login']),
+			'token' => intval($_POST['token'])));
 		$count = $req->rowCount();
 		$fetch = $req->fetch();
 		$req->closeCursor();
