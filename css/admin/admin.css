@@ -1,0 +1,37 @@
+#admin ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 20px;
+}
+
+#admin ul li {
+	line-height: 30px;
+}
+
+#admin ul li span {
+	margin:0 5px;
+	float:right;
+}
+
+#admin p, #admin h4 {
+	margin: 0;
+	width: auto;
+	display: inline-block;
+}
+
+.special_input a, .special_input a span{
+	height: 30px;
+	line-height: 30px;
+}
+
+.special_input input {
+	display: inline-block;
+	border: 0px solid transparent;
+	outline: none;
+	background-color: #EAEAEA;
+	padding: 0 0 0 5px;
+	margin: 4px 0;
+	width: 90%;
+	height: 30px;
+	line-height: 30px;
+}

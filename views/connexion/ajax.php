@@ -1,13 +1,14 @@
 <?php
 	session_start();
+	include('cookie.php');
 	// On check si on a le login et mot de passe
 	if (isset($_POST['login']) && isset($_POST['password'])) {
 		// On sécurise le tout
-		$login = htmlspecialchars($_POST['login']);
-		$password = htmlspecialchars($_POST['password']);
+		$login = $_POST['login'];
+		$password = $_POST['password'];
 
 		// On va créer les paramètres en prenant en compte les caractères pénibles
-		$form = "login=" . urlencode($login) . "&password=" . urlencode($password);
+		$form = "login=" . urlencode($login) . "&password=" . urlencode($password). "&remind=true";
 
 		// Curl va faire ce qu'un utilisateur peut faire avec son navigateur : envoyer des requêtes
 		$ch = curl_init();
@@ -21,8 +22,8 @@
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $form);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 		curl_setopt($ch, CURLOPT_HEADER, 1);
 
 		// On vérifie la valeur de retour en cas d'erreur
@@ -53,18 +54,25 @@
 			** http://www.epitrafic.com/documentation-epitech
 			*/
 
-			$_SESSION['login'] = urlencode($_POST['login']);
-			$_SESSION['password'] = urlencode($_POST['password']);
+			$_SESSION['login'] = $_POST['login'];
+			$_SESSION['password'] = my_encrypt(urlencode($_POST['password']));
 			$_SESSION['title'] = $json->{"infos"}->{"title"};
 			$_SESSION['ville'] = $json->{"infos"}->{"location"};
 			$_SESSION['promo'] = $json->{"infos"}->{"promo"};
+
+			if ($_POST['login'] == "perrea_l") {
+				$_SESSION['grade'] = 5;
+			}
+			else {
+				$_SESSION['grade'] = 1;
+			}
 
 			/*
 			** On signale à la BDD qu'on vient de se connecter
 			*/
 
 			// Des cookies, parce qu'on a faim. (Ils permettent en réalité de tenir plus longtemps sur une page)
-			setcookie('connexionAuto', $_SESSION['login'] . '-' . $_SESSION['password'], (time() + 365*24*3600));
+			setcookie('auto_connect', $_SESSION['login'] . '-' . $_SESSION['password'], (time() + 365*24*3600), "/");
 
 			echo "<div class='alert alert-success' role='alert'><span class='glyphicon glyphicon-ok-sign'></span> Bonjour ". $_SESSION['login'] .", heureux de vous voir sur EpiTrafic ! Nous allons vous rediriger automatiquement dans 3 secondes.</div>";
 		}

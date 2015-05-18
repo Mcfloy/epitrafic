@@ -1,3 +1,6 @@
+				<div id="footer">
+					<p>Epitrafic est un site développé par perrea_l.</p>
+				</div>
 			</div>
 		</div>
 	</div>

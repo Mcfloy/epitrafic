@@ -1,0 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Economica:700);
+
+.media img {
+	max-width: 48px;
+	max-height: 48px;
+}
+
+.titre a {
+	color: #FAFAFA;
+	font-family: 'Economica', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+
+}

@@ -1,7 +1,7 @@
 <?php
 	include('views/global/header.php');
 ?>
-	<link rel="stylesheet" href="/v3/css/connexion/connexion.css">
+	<link rel="stylesheet" href="css/connexion/connexion.css">
 	<div class="container-fluid">
 		<br>
 		<div class="row-fluid row-centered">
@@ -14,6 +14,9 @@
 				else
 					include('views/connexion/form.php');
 			?>
+			</div>
+			<div id="loader-wrapper">
+				<div id="loader"></div>
 			</div>
 		</div>
 	</div>

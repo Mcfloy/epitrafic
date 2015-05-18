@@ -7,18 +7,23 @@ function send_form() {
 		if (password.length == 4) {
 			$(".col-centered").prepend("<div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign'></span> Nous vous demandons le mot de passe UNIX.</div>");
 		} else {
+			$("#loader-wrapper").fadeIn("slow");
+			$("form button").attr("value", "Envoi en cours..");
+			$("form button").attr("disabled", true);
 			$.ajax({
-				url: "/v3/views/connexion/ajax.php",
+				url: "/views/connexion/ajax.php",
 				method: "POST",
 				dataType: 'html',
-				data: "login=" + login + "&password=" + password
+				data: "login=" + login + "&password=" + encodeURIComponent(password)
 				}).done(function (data) {
 					$(".col-centered").prepend(data);
 					if ($(".alert-success").length > 0) {
 						$("form").remove();
-						setTimeout(function () {
-							window.location.replace("/v3/");
-						}, 3000);
+						window.location.replace("/");
+					} else {
+						$("form button").attr("attr", "Envoi");
+						$("form button").attr("disabled", false);
+						$("#loader-wrapper").fadeOut("slow");
 					}
 				});
 		}

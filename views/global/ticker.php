@@ -1,10 +1,15 @@
 <?php
 if (isset($_SESSION['login'])) {
+	include('views/global/identifiants.php');
+	$req = $bdd->query('SELECT message FROM panel');
 	?>
 	<ul id="js-news" class="js-hidden">
-		<li class="news-item">Activité en cours : <strong>Cours de SQL</strong> (Vous avez validé votre token)</li>
-		<li class="news-item">Prochaine activité : <strong>Aujourd'hui</strong> à <strong>14h30</strong> pour <strong>un examen</strong> intitulé <strong>Examen Machine</strong>.</li>
-		<li class="news-item">Tout va bien</li>
+		<?php
+		while ($fetch = $req->fetch()) {
+			echo "<li class='news-item'>". utf8_encode($fetch['message']) ."</li>";
+		}
+		$req->closeCursor();
+		?>
 	</ul>
 <?php
 } else {

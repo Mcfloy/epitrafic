@@ -1,0 +1,11 @@
+table, table thead tr th {
+	text-align: center;
+}
+
+.hidden-xs > form {
+	display: inline-block;
+}
+
+.hidden-xs > form > *, .hidden-xs > input[type="text"], .hidden-xs > .btn {
+	height: 30px;
+}

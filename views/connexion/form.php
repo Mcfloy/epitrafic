@@ -14,4 +14,4 @@
 	</form>
 </div>
 
-<script src="/v3/js/connexion/form.js"></script>
+<script src="js/connexion/form.js"></script>
