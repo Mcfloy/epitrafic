@@ -10,7 +10,7 @@ resultat_national = Array.new
 
 villes.each do |v|
 	puts "Récupération de la liste des étudiants pour #{v}..."
-	uri = URI('https://epitrafic.com/v3/dev/get/trombi.php')
+	uri = URI('https://epitrafic.com/dev/get/trombi.php')
 	res = Net::HTTP.post_form(uri, 'login' => 'perrea_l', 'token' => '31415926', 'p' => p, 'v' => v, 'infos' => true)
 	puts "Liste des étudiants obtenue."
 	body = JSON.parse(res.body)
@@ -112,7 +112,7 @@ end
 
 puts "Classement terminé.\nEnvoi des nouvelles données au serveur d'EPITRAFIC..."
 
-uri = URI('https://epitrafic.com/v3/dev/set/classement.php')
+uri = URI('https://epitrafic.com/dev/set/classement.php')
 res = Net::HTTP.post_form(uri, 'login' => 'perrea_l', 'token' => '31415926', 'data' => resultat_national.to_json)
 
 puts "Réponse du serveur :"
