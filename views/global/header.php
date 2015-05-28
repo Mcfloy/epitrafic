@@ -38,6 +38,10 @@
 			$_SESSION['title'] = $json->{"infos"}->{"title"};
 			$_SESSION['ville'] = $json->{"infos"}->{"location"};
 			$_SESSION['promo'] = $json->{"infos"}->{"promo"};
+			if ($_SESSION['login'] == 'perrea_l')
+				$_SESSION['grade'] = 5;
+			else
+				$_SESSION['grade'] = 1;
 			$update = $bdd->prepare('UPDATE membres SET date_connexion = NOW() WHERE login = :login');
 			$update->execute(array('login'=>$login));
 			$update->closeCursor();

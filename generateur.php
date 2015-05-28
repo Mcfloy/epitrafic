@@ -1,7 +1,7 @@
 <?php
 	include('views/global/header.php');
 ?>
-	<link rel="stylesheet" href="/css/admin/admin.css">
+	<link rel="stylesheet" href="css/generateur/generateur.css">
 	<div class="container-fluid">
 		<br>
 		<div class="row-fluid row-centered">
@@ -9,16 +9,8 @@
 			<?php
 				include('views/global/mobile.php');
 
-				if (isset($_SESSION['grade'])) {
-					if ($_SESSION['grade'] < 5)
-						include('views/erreur/grade.php');
-					else {
-						if (isset($_GET['action']))
-							include('views/admin/action.php');
-						else
-							include('views/admin/index.php');
-					}
-				}
+				if (isset($_SESSION['login']))
+					include('views/generateur/generateur.php');
 				else
 					header('location:connexion.php');
 			?>

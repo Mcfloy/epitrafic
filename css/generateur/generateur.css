@@ -1,0 +1,49 @@
+select {
+	height: 40px;
+	font-size: 14px;
+	line-height: 28px;
+	padding: 0 5px;
+	border: 0;
+	background-color: #ecf0f1;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+button {
+	height: 40px;
+	padding: 5px 10px;
+	line-height: 10px;
+	font-size: 14px;
+	border: 0;
+	background-color: #2980b9;
+	color: #EFEFEF;
+	font-family: 'Roboto Condensed', sans-serif;
+	transition-property: background-color;
+	transition-duration: 600ms;
+	vertical-align: top;
+}
+
+button:hover{
+	background-color: #3498db;
+}
+
+#token {
+	margin: 10px 0 0 0;
+}
+
+#cake {
+	margin: 10px 0 0 0;
+	padding: 2px 12px;
+	font-weight: bold;
+	font-size: 26px;
+	color: #222;
+	background: rgba(153,153,153,1);
+	background: -moz-linear-gradient(left, rgba(153,153,153,1) 0%, rgba(189,189,189,1) 50%, rgba(189,189,189,1) 51%, rgba(153,153,153,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(153,153,153,1)), color-stop(50%, rgba(189,189,189,1)), color-stop(51%, rgba(189,189,189,1)), color-stop(100%, rgba(153,153,153,1)));
+	background: -webkit-linear-gradient(left, rgba(153,153,153,1) 0%, rgba(189,189,189,1) 50%, rgba(189,189,189,1) 51%, rgba(153,153,153,1) 100%);
+	background: -o-linear-gradient(left, rgba(153,153,153,1) 0%, rgba(189,189,189,1) 50%, rgba(189,189,189,1) 51%, rgba(153,153,153,1) 100%);
+	background: -ms-linear-gradient(left, rgba(153,153,153,1) 0%, rgba(189,189,189,1) 50%, rgba(189,189,189,1) 51%, rgba(153,153,153,1) 100%);
+	background: linear-gradient(to right, rgba(153,153,153,1) 0%, rgba(189,189,189,1) 50%, rgba(189,189,189,1) 51%, rgba(153,153,153,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#999999', endColorstr='#999999', GradientType=1 );
+	max-width: 200px;
+	display:inline-block;
+}
