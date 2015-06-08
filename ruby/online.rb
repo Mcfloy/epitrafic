@@ -46,7 +46,7 @@ promo.each do |p|
 		end
 		puts "\nEnvoi des nouvelles données au serveur d'EPITRAFIC..."
 
-		uri = URI('https://epitrafic.com/v3/dev/set/online.php')
+		uri = URI('https://epitrafic.com/dev/set/online.php')
 		res = Net::HTTP.post_form(uri, 'login' => 'perrea_l', 'token' => '31415926', 'p' => p, 'v' => v, 'data' => resultat.to_json)
 
 		puts "Réponse du serveur :"
