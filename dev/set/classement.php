@@ -5,7 +5,7 @@
 		include('../../views/global/identifiants.php');
 		$req = $bdd->prepare('SELECT * FROM api WHERE login = :login AND token = :token');
 		$req->execute(array(
-			'login' => htmlspecialchars($_PSOT['login']),
+			'login' => htmlspecialchars($_POST['login']),
 			'token' => intval($_POST['token'])));
 		$count = $req->rowCount();
 		$req->closeCursor();
