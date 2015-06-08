@@ -6,8 +6,6 @@ Finir page d'administration (API)
 
 Finir le système de validation des tokens
 
-Commencer le vrai (faux) générateur de token
-
 Commencer l'application mobile d'Epitrafic
 
 Créer des pages avec des données en JSON
