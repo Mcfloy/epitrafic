@@ -11,7 +11,7 @@ promo.each do |p|
 	puts "Promotion #{p}"
 	villes.each do |v|
 		puts "Récupération de la liste des étudiants pour #{v}..."
-		uri = URI('https://epitrafic.com/v3/dev/get/trombi.php')
+		uri = URI('https://epitrafic.com/dev/get/trombi.php')
 		res = Net::HTTP.post_form(uri, 'login' => 'perrea_l', 'token' => '31415926', 'p' => p, 'v' => v)
 		puts "Liste des étudiants obtenue."
 		body = JSON.parse(res.body)
